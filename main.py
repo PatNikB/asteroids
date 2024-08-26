@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 from constants import *
+from player import *
 
 def main():
     pygame.init()
@@ -13,11 +14,15 @@ def main():
     oClock = pygame.time.Clock()
     dt = 0
 
+    oPlayer = Player( ( SCREEN_WIDTH / 2 ), ( SCREEN_HEIGHT / 2 ))
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill(0)
+        screen.fill("black")
+        oPlayer.draw(screen)
+
         pygame.display.flip()
         dt = oClock.tick(60) / 1000
         
